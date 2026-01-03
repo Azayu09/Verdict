@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verdict - Outcome Analysis System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Homepage -->
+        <section id="homepage" class="page active">
+            <header class="hero">
+                <h1 class="title">Verdict</h1>
+                <p class="subtitle">We calculate outcomes, not dreams.</p>
+            </header>
+
+            <div class="preview-panel">
+                <div class="preview-item">
+                    <span class="preview-label">Goal</span>
+                    <div class="preview-blur">Your defined objective</div>
+                </div>
+                <div class="preview-item">
+                    <span class="preview-label">Current Effort</span>
+                    <div class="preview-blur">Actual daily input</div>
+                </div>
+                <div class="preview-item">
+                    <span class="preview-label">Likely Outcome</span>
+                    <div class="preview-blur">Probability-based result</div>
+                </div>
+            </div>
+
+            <div class="capabilities-grid">
+                <div>
+                    <div class="capability-card">
+                        <h3>Reality-Based Timelines</h3>
+                        <p>Projected completion dates based on current effort patterns</p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>Effort Gap Analysis</h3>
+                        <p>Quantified difference between required and actual daily input</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="capability-card">
+                        <h3>Failure Probability</h3>
+                        <p>Statistical likelihood of dropout, burnout, or abandonment</p>
+                    </div>
+                    <div class="capability-card">
+                        <h3>Most Likely Outcome</h3>
+                        <p>Evidence-based prediction if behavior remains unchanged</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="cta-primary" onclick="showPage('goal-selection')">
+                <span class="cta-text">Run Reality Check</span>
+                <span class="cta-icon">→</span>
+            </button>
+            
+            <div class="system-alert">
+                <div class="alert-icon">!</div>
+                <div class="alert-content">
+                    <div class="alert-title">System Notice</div>
+                    <div class="alert-text">This analysis uses behavioral data and probability ranges. Results reflect current patterns, not potential.</div>
+                </div>
+            </div>
+
+            
+        </section>
+
+        <!-- Goal Selection -->
+        <section id="goal-selection" class="page">
+            <div class="page-header">
+                <h2>Goal Selection</h2>
+                <p class="page-subtitle">Select a predefined goal or map a custom objective</p>
+            </div>
+
+            <div class="goal-cards">
+                <div class="goal-card" onclick="selectGoal('faang')">
+                    <div class="goal-header">
+                        <h3>FAANG / Product Companies</h3>
+                        <span class="goal-badge">8% success rate</span>
+                    </div>
+                    <p>Software engineering positions at tier-1 companies</p>
+                    <div class="goal-meta">
+                        <span>6-12 months</span>
+                        <span>High competition</span>
+                    </div>
+                </div>
+
+                <div class="goal-card" onclick="selectGoal('career-switch')">
+                    <div class="goal-header">
+                        <h3>Career Switch to Tech</h3>
+                        <span class="goal-badge">12% success rate</span>
+                    </div>
+                    <p>Professional transition from non-technical background</p>
+                    <div class="goal-meta">
+                        <span>8-18 months</span>
+                        <span>Moderate competition</span>
+                    </div>
+                </div>
+
+                <div class="goal-card" onclick="selectGoal('startup')">
+                    <div class="goal-header">
+                        <h3>Profitable Startup</h3>
+                        <span class="goal-badge critical">5% success rate</span>
+                    </div>
+                    <p>Build and monetize a venture to sustainability</p>
+                    <div class="goal-meta">
+                        <span>12-24 months</span>
+                        <span>Extreme competition</span>
+                    </div>
+                </div>
+
+                <div class="goal-card" onclick="selectGoal('weight-loss')">
+                    <div class="goal-header">
+                        <h3>Physical Transformation</h3>
+                        <span class="goal-badge">15% success rate</span>
+                    </div>
+                    <p>Significant body composition change with maintenance</p>
+                    <div class="goal-meta">
+                        <span>6-12 months</span>
+                        <span>High relapse risk</span>
+                    </div>
+                </div>
+
+                <div class="goal-card" onclick="selectGoal('competitive-exam')">
+                    <div class="goal-header">
+                        <h3>Competitive Examination</h3>
+                        <span class="goal-badge critical">3% success rate</span>
+                    </div>
+                    <p>UPSC / CAT / GATE / JEE or equivalent selection process</p>
+                    <div class="goal-meta">
+                        <span>12-24 months</span>
+                        <span>National competition</span>
+                    </div>
+                </div>
+
+                <div class="goal-card" onclick="selectGoal('fullstack')">
+                    <div class="goal-header">
+                        <h3>Full-Stack Development</h3>
+                        <span class="goal-badge">18% success rate</span>
+                    </div>
+                    <p>Job-ready proficiency across frontend and backend</p>
+                    <div class="goal-meta">
+                        <span>6-9 months</span>
+                        <span>Moderate competition</span>
+                    </div>
+                </div>
+
+                <div class="goal-card custom" onclick="startGoalMapping()">
+                    <div class="goal-header">
+                        <h3>Map Custom Goal</h3>
+                        <span class="goal-badge neutral">Structured Analysis</span>
+                    </div>
+                    <p>Classify your objective through diagnostic questions</p>
+                    <div class="goal-meta">
+                        <span>5-step process</span>
+                        <span>Behavior-based</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Goal Mapping Flow -->
+        <section id="goal-mapping" class="page">
+            <div class="mapping-header">
+                <h2>Goal Mapping</h2>
+                <div class="mapping-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="mapping-progress"></div>
+                    </div>
+                    <span class="progress-text">Step <span id="current-step">1</span> of 4</span>
+                </div>
+            </div>
+
+            <!-- Step 1: Category -->
+            <div class="mapping-step active" id="step-category">
+                <h3>Select Goal Category</h3>
+                <p class="step-description">Choose the structural category that best matches your objective</p>
+                
+                <div class="category-options">
+                    <button class="category-btn" onclick="selectCategory('skill')">
+                        <div class="category-title">Skill Acquisition</div>
+                        <div class="category-desc">Learning technical or creative skills</div>
+                    </button>
+                    <button class="category-btn" onclick="selectCategory('exam')">
+                        <div class="category-title">Competitive Selection</div>
+                        <div class="category-desc">Exam or selection process with pass/fail</div>
+                    </button>
+                    <button class="category-btn" onclick="selectCategory('career')">
+                        <div class="category-title">Professional Transition</div>
+                        <div class="category-desc">Career switch or role advancement</div>
+                    </button>
+                    <button class="category-btn" onclick="selectCategory('physical')">
+                        <div class="category-title">Physical Transformation</div>
+                        <div class="category-desc">Fitness, weight, or endurance goal</div>
+                    </button>
+                    <button class="category-btn" onclick="selectCategory('business')">
+                        <div class="category-title">Business / Income</div>
+                        <div class="category-desc">Revenue, venture, or financial target</div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: Structural Questions -->
+            <div class="mapping-step" id="step-structural">
+                <h3>Structural Qualification</h3>
+                <p class="step-description">Answer these questions to classify goal behavior</p>
+                
+                <div class="question-block">
+                    <label>Is success binary (pass/fail) or gradual?</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="success-type" value="binary">
+                            <span>Binary (pass/fail, hired/rejected)</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="success-type" value="gradual">
+                            <span>Gradual (progressive improvement)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <label>What is the competition level?</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="competition" value="none">
+                            <span>No competition (personal benchmark)</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="competition" value="local">
+                            <span>Local or industry-specific</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="competition" value="national">
+                            <span>National or global</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <label>Can daily effort be measured in hours?</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="measurable" value="yes">
+                            <span>Yes (study, practice, work hours)</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="measurable" value="no">
+                            <span>No (quality-dependent or episodic)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <label>Is there a fixed deadline?</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="deadline" value="fixed">
+                            <span>Fixed (exam date, application deadline)</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="deadline" value="flexible">
+                            <span>Flexible (can be adjusted)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="btn-secondary" onclick="processStructuralData()">Continue</button>
+            </div>
+
+            <!-- Step 3: Model Assignment -->
+            <div class="mapping-step" id="step-model">
+                <h3>Model Assignment</h3>
+                <p class="step-description">Based on your responses, this goal maps to:</p>
+                
+                <div class="model-display">
+                    <div class="model-icon"></div>
+                    <div class="model-name" id="assigned-model">Long-Horizon Skill Acquisition</div>
+                    <div class="model-description" id="model-description">
+                        Gradual progress model with compounding returns and consistency requirements
+                    </div>
+                </div>
+
+                <div class="model-characteristics">
+                    <div class="characteristic">
+                        <span class="char-label">Competition Intensity</span>
+                        <div class="char-bar">
+                            <div class="char-fill" id="char-competition"></div>
+                        </div>
+                    </div>
+                    <div class="characteristic">
+                        <span class="char-label">Timeline Uncertainty</span>
+                        <div class="char-bar">
+                            <div class="char-fill" id="char-timeline"></div>
+                        </div>
+                    </div>
+                    <div class="characteristic">
+                        <span class="char-label">Effort Measurability</span>
+                        <div class="char-bar">
+                            <div class="char-fill" id="char-effort"></div>
+                        </div>
+                    </div>
+                    <div class="characteristic">
+                        <span class="char-label">Failure Volatility</span>
+                        <div class="char-bar">
+                            <div class="char-fill" id="char-failure"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-secondary" onclick="continueToInputs()">Proceed to Analysis</button>
+            </div>
+
+            <!-- Step 4: Unsupported Goal -->
+            <div class="mapping-step" id="step-unsupported">
+                <div class="unsupported-notice">
+                    <div class="notice-icon">×</div>
+                    <h3>Cannot Calculate This Goal</h3>
+                    <p>This objective cannot be analyzed accurately due to:</p>
+                    <ul id="unsupported-reasons"></ul>
+                    <p class="notice-footer">Structure enables accuracy. We cannot provide meaningful analysis without measurable parameters.</p>
+                </div>
+                <button class="btn-secondary" onclick="showPage('goal-selection')">Return to Goal Selection</button>
+            </div>
+        </section>
+
+        <!-- Reality Input Form -->
+        <section id="reality-input" class="page">
+            <div class="page-header">
+                <h2>Diagnostic Input</h2>
+                <p class="page-subtitle" id="goal-name-display">Current analysis: Loading...</p>
+            </div>
+
+            <form id="reality-form" class="diagnostic-form">
+                <div class="input-section">
+                    <label class="input-label">Current Skill Level</label>
+                    <div class="input-options">
+                        <label class="option-card">
+                            <input type="radio" name="skill-level" value="0" required>
+                            <span class="option-text">Complete Beginner</span>
+                            <span class="option-desc">Never attempted this</span>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="skill-level" value="1">
+                            <span class="option-text">Basic Familiarity</span>
+                            <span class="option-desc">Consumed tutorials/content</span>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="skill-level" value="2">
+                            <span class="option-text">Some Practice</span>
+                            <span class="option-desc">Built small projects</span>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="skill-level" value="3">
+                            <span class="option-text">Intermediate</span>
+                            <span class="option-desc">Work independently</span>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="skill-level" value="4">
+                            <span class="option-text">Advanced</span>
+                            <span class="option-desc">Production experience</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="input-section">
+                    <label class="input-label">Average Daily Effort (Last 30 Days)</label>
+                    <div class="slider-input">
+                        <input type="range" id="daily-effort" min="0" max="5" value="0" step="1" required>
+                        <div class="slider-labels">
+                            <span>0-30 min</span>
+                            <span>30-60 min</span>
+                            <span>1-2 hrs</span>
+                            <span>2-4 hrs</span>
+                            <span>4-6 hrs</span>
+                            <span>6+ hrs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-section">
+                    <label class="input-label">Consistency Duration</label>
+                    <select class="input-select" id="consistency" required>
+                        <option value="">Select duration...</option>
+                        <option value="0">Less than 1 month</option>
+                        <option value="1">1-2 months</option>
+                        <option value="2">3-4 months</option>
+                        <option value="3">5-6 months</option>
+                        <option value="4">6+ months</option>
+                    </select>
+                </div>
+
+                <div class="input-section">
+                    <label class="input-label">Previous Failed Attempts</label>
+                    <select class="input-select" id="failed-attempts" required>
+                        <option value="">Select count...</option>
+                        <option value="0">None - first attempt</option>
+                        <option value="1">1 failed attempt</option>
+                        <option value="2">2-3 failed attempts</option>
+                        <option value="3">4+ failed attempts</option>
+                    </select>
+                </div>
+
+                <div class="input-section">
+                    <label class="input-label">External Constraints</label>
+                    <select class="input-select" id="constraints" required>
+                        <option value="">Select constraint level...</option>
+                        <option value="0">Full-time available</option>
+                        <option value="1">Part-time job/college</option>
+                        <option value="2">Full-time job/college</option>
+                        <option value="3">Job + family responsibilities</option>
+                    </select>
+                </div>
+
+                <div class="input-section">
+                    <label class="input-label">Distraction Level</label>
+                    <select class="input-select" id="distractions" required>
+                        <option value="">Select level...</option>
+                        <option value="0">Minimal (under 1 hour daily)</option>
+                        <option value="1">Moderate (1-2 hours daily)</option>
+                        <option value="2">High (2-4 hours daily)</option>
+                        <option value="3">Severe (4+ hours daily)</option>
+                    </select>
+                </div>
+
+                <div class="input-section">
+                    <label class="input-label">Target Timeline</label>
+                    <select class="input-select" id="timeline" required>
+                        <option value="">Select timeline...</option>
+                        <option value="3">3 months</option>
+                        <option value="6">6 months</option>
+                        <option value="12">12 months</option>
+                        <option value="24">24 months</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="cta-primary">
+                    <span class="cta-text">Execute Analysis</span>
+                    <span class="cta-icon">→</span>
+                </button>
+            </form>
+        </section>
+
+        <!-- Reality Report -->
+        <section id="reality-report" class="page">
+            <div class="report-header">
+                <h2>Outcome Analysis</h2>
+                <div class="report-id">
+                    <span>Report ID:</span>
+                    <span id="report-number"></span>
+                </div>
+            </div>
+
+            <div class="verdict-panel">
+                <div class="verdict-label">Primary Assessment</div>
+                <div class="verdict-text" id="verdict-text"></div>
+            </div>
+
+            <div class="probability-panel">
+                <div class="prob-card success-card">
+                    <div class="prob-value" id="success-prob">--</div>
+                    <div class="prob-label">Success Probability</div>
+                </div>
+                <div class="prob-card burnout-card">
+                    <div class="prob-value" id="burnout-prob">--</div>
+                    <div class="prob-label">Burnout Risk</div>
+                </div>
+                <div class="prob-card quit-card">
+                    <div class="prob-value" id="quit-prob">--</div>
+                    <div class="prob-label">Dropout Risk</div>
+                </div>
+            </div>
+
+            <div class="analysis-grid">
+                <div class="analysis-panel">
+                    <h3>Underestimated Factors</h3>
+                    <ul class="factor-list" id="underestimate-list"></ul>
+                </div>
+                <div class="analysis-panel">
+                    <h3>Overestimated Factors</h3>
+                    <ul class="factor-list" id="overestimate-list"></ul>
+                </div>
+            </div>
+
+            <div class="effort-panel">
+                <h3>Effort Analysis</h3>
+                <div class="effort-comparison">
+                    <div class="effort-row">
+                        <span class="effort-label">Required Daily</span>
+                        <div class="effort-bar">
+                            <div class="effort-fill required" id="required-bar"></div>
+                        </div>
+                        <span class="effort-value" id="required-value">0h</span>
+                    </div>
+                    <div class="effort-row">
+                        <span class="effort-label">Current Actual</span>
+                        <div class="effort-bar">
+                            <div class="effort-fill current" id="current-bar"></div>
+                        </div>
+                        <span class="effort-value" id="current-value">0h</span>
+                    </div>
+                </div>
+                <div class="effort-metrics">
+                    <div class="metric">
+                        <span class="metric-label">Effort Gap</span>
+                        <span class="metric-value" id="gap-value">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Realistic Timeline</span>
+                        <span class="metric-value" id="timeline-value">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Failure Point</span>
+                        <span class="metric-value" id="failure-value">--</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="outcome-panel">
+                <h3>Projected Outcome</h3>
+                <p class="outcome-text" id="outcome-text"></p>
+            </div>
+
+            <div class="decision-panel">
+                <h3>Decision Options</h3>
+                <div class="decision-grid">
+                    <div class="decision-card">
+                        <div class="decision-number">1</div>
+                        <h4>Accept Reality</h4>
+                        <ul class="decision-list" id="accept-list"></ul>
+                    </div>
+                    <div class="decision-card">
+                        <div class="decision-number">2</div>
+                        <h4>Change Inputs</h4>
+                        <ul class="decision-list" id="change-list"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="report-actions">
+                <button class="btn-secondary" onclick="showPage('homepage')">New Analysis</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
